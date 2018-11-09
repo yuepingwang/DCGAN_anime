@@ -5,6 +5,8 @@ def initialize():
     parser = argparse.ArgumentParser()
     parser.add_argument('--netG', default='', help="path to netG (to continue training)")
     parser.add_argument('--netD', default='', help="path to netD (to continue training)")
+    parser.add_argument('--netG2', default='', help="path to netG (to continue training)")
+    parser.add_argument('--netD2', default='', help="path to netD (to continue training)")
     parser.add_argument('--data_root', required=True, help='path to the dateset (real images)')
     parser.add_argument('--outDir', default='.', help='folder to output images and model checkpoints')
     parser.add_argument('--n_epochs', type=int, default=25, help='number of epochs to train for')
@@ -23,13 +25,15 @@ def initialize():
         '--data_root', '/Users/yuepingwang/Downloads/fewer-faces',
         '--batch_size', '32',
         '--image_size', '64',## rescale actual dataset to this size
-        '--latent_dim', '10',## start w/ small number
-        '--n_epochs', '10',## start w/ small number of iterations
+        '--latent_dim', '20',## start w/ small number
+        '--n_epochs', '1',## start w/ small number of iterations
         '--lr', '0.0002',
         '--b1', '0.5',
         '--n_cpu', '4',
         '--netG', '/Users/yuepingwang/Desktop/fall18/Intro_to_ML/DCGAN_anime/results/netG.pth',
         '--netD', '/Users/yuepingwang/Desktop/fall18/Intro_to_ML/DCGAN_anime/results/netD.pth',
+        '--netG2', '/Users/yuepingwang/Desktop/fall18/Intro_to_ML/DCGAN_anime/results/netG2.pth',
+        '--netD2', '/Users/yuepingwang/Desktop/fall18/Intro_to_ML/DCGAN_anime/results/netD2.pth',
         '--outDir', '/Users/yuepingwang/Desktop/fall18/Intro_to_ML/DCGAN_anime/results',
         ]
     opt = parser.parse_args(arg_list)

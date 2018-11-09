@@ -48,12 +48,18 @@ netG.apply(weights_init_normal)
 netD.apply(weights_init_normal)
 
 # IF THERE EXIST PATHS TO G AND D, LOAD THEM
-if opt.netG != '':
-    netG.load_state_dict(torch.load(opt.netG))
+# if opt.netG != '':
+#     if opt.latent_dim == 20:
+#         netG.load_state_dict(torch.load(opt.netG2))
+#     else:
+#         netG.load_state_dict(torch.load(opt.netG))
 print(netG)
 
-if opt.netD != '':
-    netD.load_state_dict(torch.load(opt.netD))
+# if opt.netD != '':
+#     if opt.latent_dim == 20:
+#         netD.load_state_dict(torch.load(opt.netD2))
+#     else:
+#         netD.load_state_dict(torch.load(opt.netD))
 print(netD)
 
 n_cpu = opt.n_cpu
@@ -120,11 +126,15 @@ for epoch in range(opt.n_epochs):
 
         # CHECKPOINT: SAVE G AND D
         if epoch % 1 == 0:
-            torch.save(netG.state_dict(), '%s/netG.pth' % (opt.outDir))
-            torch.save(netD.state_dict(), '%s/netD.pth' % (opt.outDir))
+            if opt.latent_dim == 20:
+                torch.save(netG.state_dict(), '%s/netG2.pth' % (opt.outDir))
+                torch.save(netD.state_dict(), '%s/netD2.pth' % (opt.outDir))
+            else:
+                torch.save(netG.state_dict(), '%s/netG.pth' % (opt.outDir))
+                torch.save(netD.state_dict(), '%s/netD.pth' % (opt.outDir))
         batches_done = epoch * len(dataloader) + 1
 
         # SAVE IMAGES EVERY FEW ITERATIONS
-        if epoch % 3 == 0 and i == 41:
+        if epoch % 1 == 0 and i == 98:
             print("save->")
-            save_image(gen_images.data[:25], '%s/%d.png' % (opt.outDir, batches_done), nrow=8, normalize=True)
+            save_image(gen_images.data[9:16], '%s/%d.png' % (opt.outDir, batches_done), nrow=8, normalize=True)
