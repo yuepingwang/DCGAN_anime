@@ -23,5 +23,6 @@
 #### Projects I've been inspired by:
 
 Anime GAN by Jie Lei: https://github.com/jayleicn/animeGAN
+
 DCGAN pytorch tutorial by Erik Linder-Norén: https://github.com/eriklindernoren/PyTorch-GAN
 
