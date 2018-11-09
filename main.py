@@ -48,18 +48,18 @@ netG.apply(weights_init_normal)
 netD.apply(weights_init_normal)
 
 # IF THERE EXIST PATHS TO G AND D, LOAD THEM
-# if opt.netG != '':
-#     if opt.latent_dim == 20:
-#         netG.load_state_dict(torch.load(opt.netG2))
-#     else:
-#         netG.load_state_dict(torch.load(opt.netG))
+if opt.netG != '':
+    if opt.latent_dim == 20:
+        netG.load_state_dict(torch.load(opt.netG2))
+    else:
+        netG.load_state_dict(torch.load(opt.netG))
 print(netG)
 
-# if opt.netD != '':
-#     if opt.latent_dim == 20:
-#         netD.load_state_dict(torch.load(opt.netD2))
-#     else:
-#         netD.load_state_dict(torch.load(opt.netD))
+if opt.netD != '':
+    if opt.latent_dim == 20:
+        netD.load_state_dict(torch.load(opt.netD2))
+    else:
+        netD.load_state_dict(torch.load(opt.netD))
 print(netD)
 
 n_cpu = opt.n_cpu
