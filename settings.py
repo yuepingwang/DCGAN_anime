@@ -26,10 +26,10 @@ def initialize():
         '--batch_size', '32',
         '--image_size', '64',## rescale actual dataset to this size
         '--latent_dim', '20',## start w/ small number
-        '--n_epochs', '1',## start w/ small number of iterations
+        '--n_epochs', '16',## start w/ small number of iterations
         '--lr', '0.0002',
         '--b1', '0.5',
-        '--n_cpu', '4',
+        '--n_cpu', '6',
         '--netG', '/Users/yuepingwang/Desktop/fall18/Intro_to_ML/DCGAN_anime/results/netG.pth',
         '--netD', '/Users/yuepingwang/Desktop/fall18/Intro_to_ML/DCGAN_anime/results/netD.pth',
         '--netG2', '/Users/yuepingwang/Desktop/fall18/Intro_to_ML/DCGAN_anime/results/netG2.pth',
