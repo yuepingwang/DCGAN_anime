@@ -5,6 +5,7 @@
 ### Previous Training Output (Synthesized Anime Character Faces)
 
 * Set latent-dimension to 10:
+
 ![1.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/1.png)
 ![554.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/554.png)
 ![860.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/860.png)
@@ -21,6 +22,7 @@
 
 
 * Set latent-dimension to 20:
+
 ![l20_1.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/l20_1.png)
 ![l20_2.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/l20_2.png)
 ![l20_3.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/l20_3.png)
