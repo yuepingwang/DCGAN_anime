@@ -11,8 +11,6 @@
 ![166.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/166.png)
 ![554.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/554.png)
 ![707.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/707.png)
-![758.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/758.png)
-![843.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/843.png)
 ![860.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/860.png)
 ![893.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/893.png)
 ![936.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/936.png)
