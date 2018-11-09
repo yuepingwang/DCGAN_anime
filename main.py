@@ -51,14 +51,14 @@ netD.apply(weights_init_normal)
 if opt.netG != '':
     if opt.latent_dim == 20:
         netG.load_state_dict(torch.load(opt.netG2))
-    else:
+    elif opt.latent_dim == 10:
         netG.load_state_dict(torch.load(opt.netG))
 print(netG)
 
 if opt.netD != '':
     if opt.latent_dim == 20:
         netD.load_state_dict(torch.load(opt.netD2))
-    else:
+    elif opt.latent_dim == 10:
         netD.load_state_dict(torch.load(opt.netD))
 print(netD)
 
@@ -129,7 +129,7 @@ for epoch in range(opt.n_epochs):
             if opt.latent_dim == 20:
                 torch.save(netG.state_dict(), '%s/netG2.pth' % (opt.outDir))
                 torch.save(netD.state_dict(), '%s/netD2.pth' % (opt.outDir))
-            else:
+            elif opt.latent_dim == 10:
                 torch.save(netG.state_dict(), '%s/netG.pth' % (opt.outDir))
                 torch.save(netD.state_dict(), '%s/netD.pth' % (opt.outDir))
         batches_done = epoch * len(dataloader) + 1
