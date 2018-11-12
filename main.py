@@ -5,6 +5,9 @@ import numpy as np
 import math
 import random
 import time
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from IPython.display import HTML
 
 #from skimage import io,transform
 
@@ -36,34 +39,41 @@ from models import weights_init_normal
 
 # DEFINE LOSS FUNCTIONS
 adversarial_loss = nn.BCELoss()
-# criterion = nn.BCELoss()
-# criterion_MSE = nn.MSELoss()
 
 # INITIALIZE GENERATOR AND DESCRIMINATOR
 netG = models.netG_()
 netD = models.netD_()
 
+#GPU specific
+cuda = True if torch.cuda.is_available() else False
+
+#GPU specific
+if cuda:
+    print('HAS CUDA')
+    netG.cuda()
+    netD.cuda()
+    adversarial_loss.cuda()
+
 # APPLY WEIGHT
 netG.apply(weights_init_normal)
 netD.apply(weights_init_normal)
 
-# IF THERE EXIST PATHS TO G AND D, LOAD THEM
+#IF THERE EXIST PATHS TO G AND D, LOAD THEM
 if opt.netG != '':
     if opt.latent_dim == 20:
         netG.load_state_dict(torch.load(opt.netG2))
-    elif opt.latent_dim == 10:
-        netG.load_state_dict(torch.load(opt.netG))
+    elif opt.latent_dim == 50:
+        netG.load_state_dict(torch.load(opt.netG5))
 print(netG)
 
 if opt.netD != '':
     if opt.latent_dim == 20:
         netD.load_state_dict(torch.load(opt.netD2))
-    elif opt.latent_dim == 10:
-        netD.load_state_dict(torch.load(opt.netD))
+    elif opt.latent_dim == 50:
+        netD.load_state_dict(torch.load(opt.netD5))
 print(netD)
 
 n_cpu = opt.n_cpu
-
 
 dataset = dset.ImageFolder(
     root=opt.data_root,
@@ -79,10 +89,14 @@ dataloader = torch.utils.data.DataLoader(dataset, batch_size=opt.batch_size, shu
 optimizer_G = optim.Adam(netG.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))
 optimizer_D = optim.Adam(netD.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))
 
-Tensor = torch.FloatTensor
+#GPU specific
+Tensor = torch.cuda.FloatTensor if cuda else torch.FloatTensor
+#Tensor = torch.FloatTensor
 
-real_label = 1
-fake_label = 0
+# TRACK PROGRESS FOR PLOTTING
+D_LOSSES = []
+G_LOSSES = []
+IMAGE_LIST = []
 
 # TO TRAIN
 for epoch in range(opt.n_epochs):
@@ -122,19 +136,39 @@ for epoch in range(opt.n_epochs):
 
         D_loss.backward()
         optimizer_D.step()
+
+        # CALCULATE DISCRIMINATOR ACCURACY
+        # _, argmax = torch.max(outputs, 1)
+
         print("[Epoch %d %d] [Batch %d %d] [D loss:%f] [G loss %f]" % (epoch, opt.n_epochs, i, len(dataloader), D_loss.item(), G_loss.item()))
+        # SAVE LOSSES FOR PLOTTING LATER
+        D_LOSSES.append(D_loss.item())
+        G_LOSSES.append(G_loss.item())
 
         # CHECKPOINT: SAVE G AND D
         if epoch % 1 == 0:
             if opt.latent_dim == 20:
                 torch.save(netG.state_dict(), '%s/netG2.pth' % (opt.outDir))
                 torch.save(netD.state_dict(), '%s/netD2.pth' % (opt.outDir))
-            elif opt.latent_dim == 10:
-                torch.save(netG.state_dict(), '%s/netG.pth' % (opt.outDir))
-                torch.save(netD.state_dict(), '%s/netD.pth' % (opt.outDir))
+            elif opt.latent_dim == 50:
+                torch.save(netG.state_dict(), '%s/netG5.pth' % (opt.outDir))
+                torch.save(netD.state_dict(), '%s/netD5.pth' % (opt.outDir))
         batches_done = epoch * len(dataloader) + 1
 
         # SAVE IMAGES EVERY FEW ITERATIONS
-        if epoch % 1 == 0 and i == 98:
+        if i == 0:
             print("save->")
             save_image(gen_images.data[9:16], '%s/%d.png' % (opt.outDir, batches_done), nrow=8, normalize=True)
+
+        # PLOTTING
+        if i == 0:
+            plt.title("Generator and Discriminator Loss During Training")
+            plt.plot(G_LOSSES, label="G")
+            plt.plot(D_LOSSES, label="D")
+            plt.xlabel("iterations")
+            plt.ylabel("Loss")
+            plt.legend()
+            plt.show()
+        # TENSOR BOARD LOGGING
+        # 1. LOG SCALAR SUMMARY
+        # info = {'loss':loss.item(),'accuracy': acc}
