@@ -3,8 +3,8 @@ import argparse
 def initialize():
     global opt
     parser = argparse.ArgumentParser()
-    parser.add_argument('--netG', default='', help="path to netG (to continue training)")
-    parser.add_argument('--netD', default='', help="path to netD (to continue training)")
+    parser.add_argument('--netG10', default='', help="path to netG (to continue training)")
+    parser.add_argument('--netD10', default='', help="path to netD (to continue training)")
     parser.add_argument('--netG2', default='', help="path to netG (to continue training)")
     parser.add_argument('--netD2', default='', help="path to netD (to continue training)")
     parser.add_argument('--netG5', default='', help="path to netG (to continue training)")
@@ -27,13 +27,13 @@ def initialize():
         '--data_root', '/Users/ywang/Desktop/small_set',
         '--batch_size', '64',
         '--image_size', '64',## rescale actual dataset to this size
-        '--latent_dim', '50',## start w/ small number
-        '--n_epochs', '50',## start w/ small number of iterations
+        '--latent_dim', '100',## start w/ small number
+        '--n_epochs', '40',## start w/ small number of iterations
         '--lr', '0.0002',
         '--b1', '0.5',
         '--n_cpu', '6',
-        '--netG', '/Users/ywang/Desktop/GANs/DCGAN/results/netG.pth',
-        '--netD', '/Users/ywang/Desktop/GANs/DCGAN/results/netD.pth',
+        '--netG10', '/Users/ywang/Desktop/GANs/DCGAN/results/netG10.pth',
+        '--netD10', '/Users/ywang/Desktop/GANs/DCGAN/results/netD10.pth',
         '--netG2', '/Users/ywang/Desktop/GANs/DCGAN/results/netG2.pth',
         '--netD2', '/Users/ywang/Desktop/GANs/DCGAN/results/netD2.pth',
         '--netG5', '/Users/ywang/Desktop/GANs/DCGAN/results/netG5.pth',

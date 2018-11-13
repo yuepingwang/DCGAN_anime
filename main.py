@@ -59,16 +59,16 @@ netG.apply(weights_init_normal)
 netD.apply(weights_init_normal)
 
 #IF THERE EXIST PATHS TO G AND D, LOAD THEM
-if opt.netG != '':
-    if opt.latent_dim == 20:
-        netG.load_state_dict(torch.load(opt.netG2))
+if opt.netG10 != '':
+    if opt.latent_dim == 100:
+        netG.load_state_dict(torch.load(opt.netG10))
     elif opt.latent_dim == 50:
         netG.load_state_dict(torch.load(opt.netG5))
 print(netG)
 
-if opt.netD != '':
-    if opt.latent_dim == 20:
-        netD.load_state_dict(torch.load(opt.netD2))
+if opt.netD10 != '':
+    if opt.latent_dim == 100:
+        netD.load_state_dict(torch.load(opt.netD10))
     elif opt.latent_dim == 50:
         netD.load_state_dict(torch.load(opt.netD5))
 print(netD)
@@ -147,9 +147,9 @@ for epoch in range(opt.n_epochs):
 
         # CHECKPOINT: SAVE G AND D
         if epoch % 1 == 0:
-            if opt.latent_dim == 20:
-                torch.save(netG.state_dict(), '%s/netG2.pth' % (opt.outDir))
-                torch.save(netD.state_dict(), '%s/netD2.pth' % (opt.outDir))
+            if opt.latent_dim == 100:
+                torch.save(netG.state_dict(), '%s/netG10.pth' % (opt.outDir))
+                torch.save(netD.state_dict(), '%s/netD10.pth' % (opt.outDir))
             elif opt.latent_dim == 50:
                 torch.save(netG.state_dict(), '%s/netG5.pth' % (opt.outDir))
                 torch.save(netD.state_dict(), '%s/netD5.pth' % (opt.outDir))

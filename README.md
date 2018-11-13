@@ -4,34 +4,15 @@
 
 ### Previous Training Output (Synthesized Anime Character Faces)
 
-* Set latent-dimension to 10:
+* Set latent-dimension to 100:
 
-![1.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/1.png)
-![554.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/554.png)
-![860.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/860.png)
-
-![893.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/893.png)
-![936.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/936.png)
-
-![1062.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/1062.png)
-![1146.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/1146.png)
-
-![l10_1.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/l10_1.png)
-![l10_2.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/l10_2.png)
-![l10_3.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/l10_3.png)
-
-
-* Set latent-dimension to 20:
-
-![l20_1.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/l20_1.png)
-![l20_2.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/l20_2.png)
-![l20_3.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/l20_3.png)
-![l20_4.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/l20_4.png)
-![l20_5.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/l20_5.png)
-![l20_6.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/l20_6.png)
-![l20_7.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/l20_7.png)
-![l20_8.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/l20_8.png)
-![l20_9.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/l20_9.png)
+![1441.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/1441.png)
+![3121.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/3121.png)
+![2161.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/2161.png)
+![2641.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/2641.png) 
+![1921.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/1921.png)
+![3361.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/3361.png)
+![7921.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/7921.png)
 
 ### Projects I was inspired by:
 
