@@ -14,6 +14,8 @@
 ![3361.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/3361.png)
 ![7921.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/7921.png)
 
+![loss.png](https://github.com/yuepingwang/DCGAN_anime/blob/master/images/loss.png)
+
 ### Projects I was inspired by:
 
 Anime GAN by Jie Lei: https://github.com/jayleicn/animeGAN
